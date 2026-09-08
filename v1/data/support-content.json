@@ -1,0 +1,970 @@
+{
+  "schemaVersion": 2,
+  "locale": "en",
+  "contentGovernance": {
+    "reviewedAt": "2026-09-08",
+    "reviewerRole": "night-build content QA",
+    "sourceBasis": [
+      "support-architecture.md",
+      "head-support-round-1.md",
+      "support-copy.md",
+      "user-sim-round-1.md"
+    ],
+    "platformScope": [
+      "Web",
+      "Base App"
+    ],
+    "livePolicyStatus": "No live-rule assertions are made; cases that require current policy or server state are sent to private support."
+  },
+  "commonFallback": {
+    "heading": "Still not fixed?",
+    "body": "If none of the fixes above worked, create one private Discord ticket for this problem.",
+    "cta": "Open Discord support",
+    "existingTicket": "Already have a ticket for this problem? Add the new details there instead of opening another one.",
+    "safety": "Never share your password, seed phrase, private key, sign-in code, or full card number. CoC support will not ask you to transfer assets."
+  },
+  "issues": [
+    {
+      "id": "purchase-not-received",
+      "category": "purchases",
+      "title": "I paid, but my purchase is missing",
+      "problem": "The payment appears to have completed, but the item or currency is not in your account.",
+      "whatMayBeHappening": [
+        "The payment may still be pending or may have failed.",
+        "The purchase may be attached to a different CoC account or connected wallet.",
+        "Payment can succeed before the game inventory updates."
+      ],
+      "caution": "Do not buy the item again while the first payment status is unclear.",
+      "fixes": [
+        {
+          "title": "Check the payment status",
+          "action": "Open the wallet, card receipt, or payment provider used for the purchase and find the transaction.",
+          "expected": "You should see Pending, Successful, Failed, or Cancelled.",
+          "next": "If it is pending, wait for the provider to update it. If it failed or was cancelled, do not expect delivery. Continue only if it is successful or you cannot find a clear status."
+        },
+        {
+          "title": "Check the account and wallet",
+          "action": "Return to CoC using the same sign-in method and, for a wallet payment, confirm that the paying wallet appears in Connected Accounts.",
+          "expected": "You should be viewing the same account that made the purchase.",
+          "next": "If a different account opened, stop here and use the account-access guide. If the account is correct, continue."
+        },
+        {
+          "title": "Refresh the inventory once",
+          "action": "Close and reopen the relevant inventory or Shop view once. Check whether the item was already used after purchase.",
+          "expected": "The purchased item or balance should appear on the correct account.",
+          "next": "If the successful purchase is still missing, open Discord support with the item, quantity, approximate time, payment method, and transaction or order ID."
+        }
+      ],
+      "relatedProblems": [
+        "main-wallet-connection",
+        "wallet-already-linked",
+        "ads-or-roulette-not-working"
+      ],
+      "discordDetails": [
+        "Item and quantity",
+        "Approximate purchase time and timezone",
+        "Payment method",
+        "Transaction hash or order ID",
+        "CoC nickname"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "nightmare-did-not-start",
+      "category": "nightmare",
+      "title": "Nightmare did not start",
+      "problem": "You entered a Nightmare room, but the Nightmare session or Virus never started.",
+      "whatMayBeHappening": [
+        "The room may not have entered the Nightmare state correctly.",
+        "A connection or room-lifecycle problem may have interrupted the start.",
+        "This is different from a general room-entry error such as CODE(0)."
+      ],
+      "caution": "Do not use another Nightmare Key to test the room.",
+      "fixes": [
+        {
+          "title": "Check whether the key was used",
+          "action": "Open your inventory and compare the current Nightmare Key count with the count before entry, if known.",
+          "expected": "You should be able to tell whether a key was removed, was not removed, or is unknown.",
+          "next": "If no key was removed, leave the room and use the room-entry guide if you still cannot play. If a key was removed or you are unsure, continue."
+        },
+        {
+          "title": "Check the room state",
+          "action": "Note whether Virus appeared and whether any AP was earned in that room. Do not refresh while a valuable live session may still be active.",
+          "expected": "This separates a no-start session from a session that started and later disconnected.",
+          "next": "If the session started and later stopped, use the disconnect guide. If it never started, continue."
+        },
+        {
+          "title": "Wait and note what happened",
+          "action": "Do not use another Key. Note the room name, exact entry time and timezone, Key status, Virus status, and any AP received.",
+          "expected": "You should have a clear record of the failed attempt without risking another Key.",
+          "next": "If the session never became playable, open Discord support now with these details. Do not spend another Key to reproduce it."
+        }
+      ],
+      "relatedProblems": [
+        "nightmare-key-missing",
+        "lag-and-disconnects",
+        "cant-join-room"
+      ],
+      "discordDetails": [
+        "Room or tier",
+        "Exact entry time and timezone",
+        "Whether a key was removed",
+        "Whether Virus appeared",
+        "AP received"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "game-wont-load",
+      "category": "connect",
+      "title": "The game will not load",
+      "problem": "The game stops before sign-in, after sign-in, or on a loading screen.",
+      "whatMayBeHappening": [
+        "The game or Base App may need an update.",
+        "The current browser, app session, or network may be stuck.",
+        "A problem that follows the same account across environments may need account or server review."
+      ],
+      "caution": "Use the same sign-in method as your existing account. Do not create a new account or clear sign-in data unless you can recover access.",
+      "fixes": [
+        {
+          "title": "Reopen the game safely",
+          "action": "When you are not in an active match, close the game tab or Base App view and open it again.",
+          "expected": "A temporary loading session should clear and the sign-in or game screen should appear.",
+          "next": "If it still stops at the same place, continue."
+        },
+        {
+          "title": "Check for an update",
+          "action": "Update the Base App or reload the current web version, then sign in with the same method as before.",
+          "expected": "The latest client should pass the point where the older session stopped.",
+          "next": "If the same error remains, continue."
+        },
+        {
+          "title": "Compare one other environment",
+          "action": "Try Web instead of Base App, or Base App instead of Web. If practical, compare one other network without using a new account.",
+          "expected": "If one environment works, keep using it and avoid clearing the working session.",
+          "next": "If the same account fails everywhere, open Discord support with the stopping point, exact error, device, OS, platform, and time."
+        }
+      ],
+      "relatedProblems": [
+        "cant-join-room",
+        "lag-and-disconnects",
+        "wallet-already-linked"
+      ],
+      "discordDetails": [
+        "Where loading stops",
+        "Exact error or code",
+        "Device and OS",
+        "Web or Base App version",
+        "Environments already tried"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "dust-balance-incorrect",
+      "category": "craft",
+      "title": "My Dust balance looks wrong",
+      "problem": "Inventory and Craft & Upgrade show different Dust balances, or the balance changed after an upgrade or dismantle.",
+      "whatMayBeHappening": [
+        "One screen may be showing an older balance.",
+        "Dust may have been spent by an upgrade.",
+        "A completed action may not have synchronized with the displayed balance yet."
+      ],
+      "caution": "If an upgrade, claim, or dismantle is still pending, do not repeat it.",
+      "fixes": [
+        {
+          "title": "Compare both Dust balances",
+          "action": "On the same CoC account, note the Dust shown in Inventory and in Craft & Upgrade.",
+          "expected": "The two screens should show the same available balance.",
+          "next": "If they match, compare the balance with the cost of your latest or planned upgrade. If they differ, continue."
+        },
+        {
+          "title": "Reopen the affected view once",
+          "action": "Sign out and back in, or close and reopen the affected view once when no action is pending.",
+          "expected": "A stale display may update to the current server balance.",
+          "next": "If both values now match, use the updated value. If they still differ, continue."
+        },
+        {
+          "title": "Recheck the last action",
+          "action": "Check the Dust cost and result of the latest upgrade or dismantle instead of estimating from the number of NFTs in inventory.",
+          "expected": "The displayed change should match a completed action and its shown cost or reward.",
+          "next": "If the arithmetic still does not match, open Discord support with both balances, the action, NFT, shown cost or reward, and exact time."
+        }
+      ],
+      "relatedProblems": [
+        "craft-action-failed",
+        "nft-not-showing",
+        "main-wallet-connection"
+      ],
+      "discordDetails": [
+        "Inventory Dust",
+        "Craft & Upgrade Dust",
+        "Expected amount and why",
+        "Latest action and NFT",
+        "Exact time and timezone"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "main-wallet-connection",
+      "category": "account",
+      "title": "The wrong wallet is connected",
+      "problem": "The wallet connected to an action is different from the Main Wallet selected for your CoC account.",
+      "whatMayBeHappening": [
+        "Your browser or Base App may have connected another linked wallet.",
+        "The wallet currently active in your wallet app may not be your selected Main Wallet.",
+        "Uppercase and lowercase letters do not make two otherwise identical addresses different."
+      ],
+      "caution": "Never share a seed phrase, private key, password, or sign-in code.",
+      "fixes": [
+        {
+          "title": "Check your selected Main Wallet",
+          "action": "Open Treasury and find the wallet selected as Main Wallet for this CoC account.",
+          "expected": "Treasury may show the address currently presented as Main Wallet for this account; this display alone does not confirm backend identity.",
+          "next": "If the address is missing, ambiguous, or unavailable to you, stop without changing Main Wallet and open private support. Otherwise continue.",
+          "ambiguityNote": "A displayed address match does not confirm backend Main Wallet identity. If the state is missing, shows a fallback, or is ambiguous, treat the result as unknown."
+        },
+        {
+          "title": "Compare the connected address",
+          "action": "Compare the full address connected to the current action with the Main Wallet address from Treasury.",
+          "expected": "The addresses should match, ignoring letter case.",
+          "next": "If they already match, the displayed addresses agree but a backend discrepancy is still possible. Use the guide for the failed action and include address details. If they differ, continue.",
+          "ambiguityNote": "A displayed address match does not confirm backend Main Wallet identity. If the state is missing, shows a fallback, or is ambiguous, treat the result as unknown."
+        },
+        {
+          "title": "Connect the selected Main Wallet",
+          "action": "Only when Treasury shows an unambiguous address that you control, disconnect the current action, connect that same wallet, and return without submitting the action.",
+          "expected": "The action may then display the same address shown in Treasury; this still does not prove backend identity.",
+          "next": "If any address is missing, different, or ambiguous, stop without linking, unlinking, or transacting and open private support.",
+          "ambiguityNote": "A displayed address match does not confirm backend Main Wallet identity. If the state is missing, shows a fallback, or is ambiguous, treat the result as unknown."
+        }
+      ],
+      "relatedProblems": [
+        "wallet-already-linked",
+        "craft-action-failed",
+        "purchase-not-received"
+      ],
+      "discordDetails": [
+        "CoC nickname",
+        "Selected Main Wallet address",
+        "Connected wallet address",
+        "Action being attempted",
+        "Screenshot of the mismatch"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "wallet-security",
+      "category": "account",
+      "title": "I think my wallet is compromised",
+      "problem": "You saw an unexpected transaction, signature request, suspicious link, or lost access to a wallet used with CoC.",
+      "whatMayBeHappening": [
+        "A third party may be trying to obtain access or approval.",
+        "A transaction or signature may have been approved outside CoC.",
+        "Only a private review can determine what account-recovery options are currently available."
+      ],
+      "caution": "Do not sign, approve, or transfer anything requested by an unsolicited message. CoC support will never ask for your secret recovery data.",
+      "fixes": [
+        {
+          "title": "Stop new approvals",
+          "action": "Close suspicious pages and reject any signature or transaction you do not understand.",
+          "expected": "No new approval should be created from that page or prompt.",
+          "next": "Do not return to the suspicious link. Continue."
+        },
+        {
+          "title": "Use only official support",
+          "action": "Ignore unsolicited DMs. Open your wallet provider through its official app or website to review approvals and permissions, and use only the private support link shown after these steps.",
+          "expected": "You should use the wallet provider's official security tools and CoC's official private ticket route, never a direct-message conversation.",
+          "next": "Create a private ticket with public wallet and transaction information only; never include credentials or recovery data."
+        }
+      ],
+      "relatedProblems": [
+        "wallet-already-linked",
+        "main-wallet-connection"
+      ],
+      "discordDetails": [
+        "CoC nickname",
+        "Public wallet address",
+        "Unexpected transaction hashes",
+        "What you saw and where",
+        "Whether you still control the wallet"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published",
+        "note": "Requires outcome-specific safe terminals per Head of Support P0-2"
+      },
+      "outcomeTerminals": [
+        {
+          "id": "prompt-rejected-no-prior",
+          "label": "I rejected the suspicious prompt and see no unexpected approvals or transactions",
+          "terminal": "safe",
+          "guidance": "Good. The rejection itself does not guarantee prior safety, but no visible unauthorized activity is a positive sign. Review your wallet provider's approval/permissions list and revoke any you do not recognize. Enable transaction notifications if available.",
+          "showDiscord": false
+        },
+        {
+          "id": "unexpected-approval-or-tx",
+          "label": "I see an approval or transaction I did not authorize",
+          "terminal": "escalate",
+          "guidance": "Do not interact with the suspicious approval or transaction. Use your wallet provider's official security tools to revoke unknown approvals. Then create a private Discord ticket so CoC support can review your game account for related activity.",
+          "showDiscord": true
+        },
+        {
+          "id": "lost-wallet-access",
+          "label": "I have lost access to my wallet entirely",
+          "terminal": "escalate",
+          "guidance": "CoC cannot recover a wallet or its contents. Create a private Discord ticket now so CoC support can review and protect your game identity and linked-account state. Separately, use only your wallet provider's official recovery process for wallet access.",
+          "showDiscord": true
+        },
+        {
+          "id": "unsure",
+          "label": "I am not sure what happened",
+          "terminal": "escalate",
+          "guidance": "Do not sign, approve, or transfer anything until the situation is clear. Create a private Discord ticket describing what you observed. CoC support can review your account activity without needing your wallet credentials.",
+          "showDiscord": true
+        }
+      ]
+    },
+    {
+      "id": "cant-join-room",
+      "category": "connect",
+      "title": "I cannot join a room",
+      "problem": "The game loads, but room entry fails, reconnects repeatedly, or shows an error such as CODE(0), 4001, or 1006.",
+      "whatMayBeHappening": [
+        "The problem may affect one room, one platform, or the current account session.",
+        "The same error code can appear in different contexts and does not prove one root cause.",
+        "A failure that follows the account across environments may require server-side review."
+      ],
+      "caution": "Do not spend a paid item or Nightmare Key to test room access.",
+      "fixes": [
+        {
+          "title": "Try another free room",
+          "action": "Try one other room that does not require a paid item and note whether the error is identical.",
+          "expected": "You should learn whether the problem affects one room or all rooms.",
+          "next": "If only one room fails, avoid it and note any in-game notices. If all rooms fail, continue."
+        },
+        {
+          "title": "Reopen outside a match",
+          "action": "Close and reopen the game when no valuable session is active, then use the same sign-in method.",
+          "expected": "A temporary room session may clear.",
+          "next": "If room entry still fails, continue."
+        },
+        {
+          "title": "Compare one other environment",
+          "action": "Try Web instead of Base App, or one other network, while keeping the same CoC account.",
+          "expected": "If one environment works, that suggests the original environment or session may be involved; it does not prove a single cause.",
+          "next": "If the same error appears across environments, open Discord support with the room, exact code, time, platform, device, and checks tried."
+        }
+      ],
+      "relatedProblems": [
+        "game-wont-load",
+        "lag-and-disconnects",
+        "nightmare-did-not-start"
+      ],
+      "discordDetails": [
+        "Room and tier",
+        "Exact error text or code",
+        "Time and timezone",
+        "Device and platform",
+        "Other rooms or environments tried"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "lag-and-disconnects",
+      "category": "connect",
+      "title": "The game lags or disconnects during play",
+      "problem": "Gameplay becomes slow, freezes, reloads, or disconnects after a room has started.",
+      "whatMayBeHappening": [
+        "The current network or client may be unstable.",
+        "Base App and Web can behave differently on the same device.",
+        "Lost AP or items cannot be confirmed from the screen alone and may need session review."
+      ],
+      "caution": "Do not refresh a valuable live session only to test it or create evidence.",
+      "fixes": [
+        {
+          "title": "Protect the active session",
+          "action": "If the room is still active, stop extra clicks and wait briefly for the connection to recover before closing anything.",
+          "expected": "A short interruption may reconnect without ending the session.",
+          "next": "If the room does not recover, note the last playable time before reopening."
+        },
+        {
+          "title": "Reopen on the same account",
+          "action": "After the session has stopped responding, reopen the game with the same sign-in method. If possible, use Web when Base App is unstable.",
+          "expected": "You may reconnect to the same account or confirm that the session has ended.",
+          "next": "If normal play returns and no progress is missing, continue playing. If the problem repeats, continue."
+        },
+        {
+          "title": "Compare the connection before the next session",
+          "action": "Before using another valuable item, try a free room on another stable network or platform.",
+          "expected": "A stable free-room test should show whether the original environment is still unreliable.",
+          "next": "If disconnects continue, or AP/items appear lost, open Discord support with the room, time, last playable moment, platform, network, AP, and items used."
+        }
+      ],
+      "relatedProblems": [
+        "cant-join-room",
+        "nightmare-did-not-start",
+        "ap-missing-or-incorrect"
+      ],
+      "discordDetails": [
+        "Room and tier",
+        "Start and last playable time with timezone",
+        "Device, platform, and network",
+        "AP received",
+        "Keys, boosters, or Virus Threat used"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "nightmare-key-missing",
+      "category": "nightmare",
+      "title": "A Nightmare Key is missing",
+      "problem": "Your Nightmare Key count is lower than expected after a session, reset, claim, reconnect, or maintenance.",
+      "whatMayBeHappening": [
+        "A key may have been used when the session started.",
+        "The displayed count may have changed after a weekly rule or reset.",
+        "A duplicate debit or failed session needs server-side review."
+      ],
+      "caution": "Do not use another Nightmare Key as a test. Current key rules can change, so old caps or event rules may no longer apply.",
+      "fixes": [
+        {
+          "title": "Record where the count changed",
+          "action": "Note the last known count, the current count, and whether the change followed a session, reset, claim, reconnect, or maintenance.",
+          "expected": "You should have a time and event boundary for a server-side inventory review without relying on an old rule.",
+          "next": "If the reason is still unclear, continue without spending another Key."
+        },
+        {
+          "title": "Check the affected session",
+          "action": "Identify the room and exact time when the count changed, and note whether the session started and earned AP.",
+          "expected": "You should be able to distinguish normal key use from a no-start, duplicate-debit, or disconnect case.",
+          "next": "If the session never started, use the Nightmare-start guide. Otherwise continue."
+        },
+        {
+          "title": "Recheck inventory once",
+          "action": "After any announced maintenance or automatic return has completed, reopen inventory once.",
+          "expected": "Any completed automatic return should appear in the current count.",
+          "next": "If the key is still missing, open Discord support with the exact time, room, count before and after, AP earned, and items used."
+        }
+      ],
+      "relatedProblems": [
+        "nightmare-did-not-start",
+        "lag-and-disconnects",
+        "ap-missing-or-incorrect"
+      ],
+      "discordDetails": [
+        "Room and tier",
+        "Exact time and timezone",
+        "Key count before and after",
+        "Whether the session started",
+        "AP and other items used"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "ap-missing-or-incorrect",
+      "category": "nightmare",
+      "title": "My AP looks wrong",
+      "problem": "Activity Points shown during play, in the results, or on the leaderboard do not match what you expected.",
+      "whatMayBeHappening": [
+        "One screen may be showing an older or temporary value.",
+        "A partial session, team state, booster, or current event rule may change the result.",
+        "Leaderboard updates and personal AP updates can happen separately."
+      ],
+      "caution": "Your expected AP is useful evidence, but it does not by itself confirm an owed balance.",
+      "fixes": [
+        {
+          "title": "Find where the value differs",
+          "action": "Compare the AP shown during the match, on the results screen, and on your profile or leaderboard.",
+          "expected": "You should see whether one screen or every screen has the same discrepancy.",
+          "next": "If only the leaderboard is stale, use the leaderboard guide. Otherwise continue."
+        },
+        {
+          "title": "Reopen the display once",
+          "action": "When the session is over, reopen the affected screen once without starting another paid session.",
+          "expected": "A display-only value may update to the recorded result.",
+          "next": "If the corrected value appears, no further action is needed. If not, continue."
+        },
+        {
+          "title": "Check the session context",
+          "action": "Record the observed AP, room, session length, party state, and any AP Booster or event label shown in the client.",
+          "expected": "The report should identify the exact value and session context without assuming a current multiplier or policy.",
+          "next": "If it still looks wrong, open Discord support with observed and expected AP, room, exact time, session length, teammates, and boosters."
+        }
+      ],
+      "relatedProblems": [
+        "leaderboard-not-updated",
+        "lag-and-disconnects",
+        "nightmare-key-missing"
+      ],
+      "discordDetails": [
+        "Observed and expected AP",
+        "Where each value appears",
+        "Room and exact time",
+        "Session length and teammates",
+        "Boosters or event context"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      },
+      "splitInfo": {
+        "splitBranches": [
+          "live-display",
+          "result-credit",
+          "personal-total",
+          "multiplier",
+          "leaderboard"
+        ],
+        "note": "First identify where the value diverges before proceeding"
+      }
+    },
+    {
+      "id": "craft-action-failed",
+      "category": "craft",
+      "title": "Craft, claim, upgrade, or dismantle failed",
+      "problem": "A Craft & Upgrade action did not complete, stayed pending, lost its button, or completed without the expected result.",
+      "whatMayBeHappening": [
+        "The wallet request may still be pending or may have failed.",
+        "The connected wallet may not be the selected Main Wallet.",
+        "The transaction may have succeeded before the item or balance synchronized."
+      ],
+      "caution": "Do not repeat a pending or unknown onchain action. Never dismantle another NFT to test a failure.",
+      "fixes": [
+        {
+          "title": "Separate an irreversible wrong-item result first",
+          "action": "If the wrong NFT was dismantled or another irreversible result occurred, stop all Craft actions immediately and record the NFT/token ID, action, time, and receipt. Otherwise open wallet activity and look for the action receipt or transaction hash.",
+          "expected": "You should see Pending, Successful, Failed, or no transaction.",
+          "next": "For a wrong-item or other irreversible result, do not link, unlink, reconnect, or submit another action; continue only to the support handoff. If pending, stop and wait. If failed, keep the error. Otherwise continue."
+        },
+        {
+          "title": "Check the Main Wallet",
+          "action": "Open Treasury and confirm that the wallet used for the action matches the selected Main Wallet.",
+          "expected": "The displayed addresses may agree, but this does not confirm backend Main Wallet identity.",
+          "next": "If they differ or either display is missing or ambiguous, stop without changing wallets and use the Main Wallet guide. If they visibly agree, continue without repeating a successful transaction."
+        },
+        {
+          "title": "Check the result once",
+          "action": "For a successful transaction, reopen Inventory and Craft & Upgrade once and look for the item or updated balance.",
+          "expected": "A completed result should appear without another transaction.",
+          "next": "If the result is missing, the claim button vanished, or the wrong NFT was dismantled, open Discord support immediately with the action, NFT, count, time, and receipt."
+        }
+      ],
+      "relatedProblems": [
+        "main-wallet-connection",
+        "dust-balance-incorrect",
+        "nft-not-showing"
+      ],
+      "discordDetails": [
+        "Exact action",
+        "NFT collection or token ID",
+        "Item count or batch size",
+        "Error and exact time",
+        "Transaction hash or no-transaction confirmation"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      },
+      "splitInfo": {
+        "splitBranches": [
+          "craft",
+          "claim",
+          "upgrade",
+          "dismantle",
+          "wrong-nft-burned"
+        ],
+        "note": "Different actions have different risk levels and recovery paths"
+      }
+    },
+    {
+      "id": "nft-not-showing",
+      "category": "craft",
+      "title": "My NFT is not showing",
+      "problem": "An NFT you bought, crafted, or claimed is visible onchain or in a marketplace but not in CoC, or the reverse.",
+      "whatMayBeHappening": [
+        "The purchase or mint may still be pending.",
+        "The wallet that owns the NFT may not be connected to this CoC account.",
+        "Onchain ownership, game inventory, and marketplace metadata can update separately."
+      ],
+      "caution": "Never transfer an NFT to support or connect to a recovery link sent by DM.",
+      "fixes": [
+        {
+          "title": "Verify the onchain status",
+          "action": "Open the transaction or token in a read-only chain explorer and confirm that the transaction succeeded and which wallet owns the NFT.",
+          "expected": "The explorer should show a successful transaction and the current owner.",
+          "next": "If the transaction is pending or failed, wait for or follow that status. If ownership is confirmed, continue."
+        },
+        {
+          "title": "Check Connected Accounts",
+          "action": "Confirm that the owner wallet appears in Connected Accounts on the CoC account you are viewing.",
+          "expected": "The owning wallet and the current CoC account should be linked.",
+          "next": "If a different or empty account opened, use the account-access guide. If the wallet is present, continue."
+        },
+        {
+          "title": "Reopen inventory once",
+          "action": "After the transaction has settled, sign back into the same account and reopen inventory once.",
+          "expected": "The item may appear after the game inventory refreshes.",
+          "next": "If ownership is confirmed but the NFT is still missing or its metadata is wrong, open Discord support with the collection, token ID, wallet, marketplace, and transaction hash."
+        }
+      ],
+      "relatedProblems": [
+        "craft-action-failed",
+        "main-wallet-connection",
+        "wallet-already-linked"
+      ],
+      "discordDetails": [
+        "Collection and token ID",
+        "Owner wallet",
+        "Transaction hash",
+        "Marketplace or action used",
+        "Where the NFT is and is not visible"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "ads-or-roulette-not-working",
+      "category": "purchases",
+      "title": "Ads or Watch & Spin are not working",
+      "problem": "No ad is available, the ad will not load, playback fails, or the ad finishes without a reward.",
+      "whatMayBeHappening": [
+        "Ad availability can differ by region, time, device, or provider.",
+        "A VPN, content blocker, or failed provider session may prevent playback.",
+        "A completed ad and a missing reward are separate problems."
+      ],
+      "caution": "Do not repeatedly watch ads, switch through VPN regions, or press Retry in a loop to force a reward.",
+      "fixes": [
+        {
+          "title": "Separate availability from a missing reward",
+          "action": "If an ad already completed without a reward, do not watch another one; reopen the relevant reward or inventory view once. If no ad started, note whether it was unavailable, failed to load, or crashed.",
+          "expected": "You should identify a delivery problem separately from ad availability or playback.",
+          "next": "If a completed reward is still missing, keep the completion time and continue to support handoff without replaying. For availability or playback, continue."
+        },
+        {
+          "title": "Remove local blockers for playback only",
+          "action": "Only if the ad did not complete, turn off any VPN or content blocker for CoC and reopen Watch & Spin once.",
+          "expected": "A local availability or playback blocker may clear; this step is not a remedy for an already missing reward.",
+          "next": "If the ad remains unavailable or playback fails, continue. Do not replay an ad that already completed without a reward."
+        },
+        {
+          "title": "Compare one other platform only for availability",
+          "action": "If no ad completed, try Web instead of Base App, or Base App instead of Web, once at a later time. Do not use this as a reward-delivery retry.",
+          "expected": "A platform-specific availability problem may differ; no result here proves reward eligibility.",
+          "next": "If availability or playback still fails, or a completed reward is missing, open Discord support with the exact symptom, time, device, platform, region, and any visible reference."
+        }
+      ],
+      "relatedProblems": [
+        "game-wont-load",
+        "purchase-not-received",
+        "lag-and-disconnects"
+      ],
+      "discordDetails": [
+        "No ad, playback failure, or missing reward",
+        "Approximate time and timezone",
+        "Device, OS, and platform",
+        "Country or region",
+        "Visible error or reference"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      },
+      "splitInfo": {
+        "splitBranches": [
+          "no-fill",
+          "playback-failure",
+          "cooldown-limit",
+          "watched-no-reward"
+        ],
+        "note": "Ad availability and reward delivery are separate failure points"
+      }
+    },
+    {
+      "id": "wallet-already-linked",
+      "category": "account",
+      "title": "My wallet is already linked, or a new empty account opened",
+      "problem": "Sign-in opened the wrong CoC account, or CoC says the wallet is already linked elsewhere.",
+      "whatMayBeHappening": [
+        "You may have used a different sign-in method from the one used for the original account.",
+        "The wallet may already belong to another CoC account.",
+        "A new Base wallet sign-in can look like a new empty game account."
+      ],
+      "caution": "Do not progress the empty account, create more accounts, or unlink wallets as a first step.",
+      "fixes": [
+        {
+          "title": "Return to the original sign-in method",
+          "action": "Sign out of the empty or wrong account, then use the same email, Google, Discord, or other method used for the original CoC account.",
+          "expected": "Your original nickname, progress, and Connected Accounts should return.",
+          "next": "If the original account opens, check its connected wallets. If it does not, continue."
+        },
+        {
+          "title": "Check accounts you can still access",
+          "action": "Without unlinking anything, note the nickname and public wallet addresses shown by each accessible account.",
+          "expected": "This should reveal whether the wallet is attached to an existing account you recognize.",
+          "next": "If you find the original account, keep using it. If ownership is unclear or access is lost, continue."
+        },
+        {
+          "title": "Stop account changes",
+          "action": "Do not link, unlink, or transfer assets while the account relationship is unclear.",
+          "expected": "The current account state remains available for private review.",
+          "next": "Open Discord support with the original nickname, sign-in methods tried, public wallet addresses, and what account each method opens."
+        }
+      ],
+      "relatedProblems": [
+        "main-wallet-connection",
+        "game-wont-load",
+        "wallet-security"
+      ],
+      "discordDetails": [
+        "Original and current nicknames",
+        "Sign-in methods tried",
+        "Public wallet addresses",
+        "Which account each method opens",
+        "Exact error text"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      },
+      "splitInfo": {
+        "splitBranches": [
+          "original-sign-in",
+          "duplicate-empty-account",
+          "already-linked-identity"
+        ],
+        "note": "Each identity problem has a different safe resolution"
+      }
+    },
+    {
+      "id": "leaderboard-not-updated",
+      "category": "progress",
+      "title": "The leaderboard has not updated",
+      "problem": "Your displayed rank or leaderboard AP does not match your current personal AP.",
+      "whatMayBeHappening": [
+        "The leaderboard may update separately from personal AP.",
+        "The page may still show an older rank or value.",
+        "A personal AP problem and a leaderboard refresh problem need different checks."
+      ],
+      "caution": "Refreshing the leaderboard does not prove that server AP was lost.",
+      "fixes": [
+        {
+          "title": "Compare personal AP and leaderboard AP",
+          "action": "Note the AP on your profile and the AP and rank shown on the leaderboard at the same time.",
+          "expected": "You should see whether only rank, only AP, or both are out of date.",
+          "next": "If personal AP is wrong too, use the AP guide. If only the leaderboard differs, continue."
+        },
+        {
+          "title": "Refresh once",
+          "action": "Keep the old values and time, then refresh the leaderboard once.",
+          "expected": "A stale leaderboard view may update to the newer values.",
+          "next": "If it updates, no further action is needed. If it does not, continue."
+        },
+        {
+          "title": "Record the update boundary",
+          "action": "Note the last known correct rank and AP, the current personal and leaderboard values, and the exact time shown on both screens.",
+          "expected": "The report should separate a stale leaderboard display from a personal AP discrepancy without assuming an update schedule.",
+          "next": "If the values still differ, open Discord support with personal AP, leaderboard AP, rank, last known correct value, and timestamped screenshots."
+        }
+      ],
+      "relatedProblems": [
+        "ap-missing-or-incorrect",
+        "referral-not-counted",
+        "lag-and-disconnects"
+      ],
+      "discordDetails": [
+        "Personal AP",
+        "Leaderboard AP and rank",
+        "Last known correct value",
+        "Exact time and timezone",
+        "Screenshot of both views"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "referral-not-counted",
+      "category": "progress",
+      "title": "My referral progress was not counted",
+      "problem": "A referral did not appear, did not meet eligibility, did not generate expected progress, or did not produce an expected payout.",
+      "whatMayBeHappening": [
+        "The invite may not have linked during sign-in.",
+        "The referred account or activity may not meet the current eligibility rules.",
+        "Purchase attribution and referral payout are separate stages, and some payment methods may not qualify."
+      ],
+      "caution": "This guide cannot promise retroactive referral credit.",
+      "fixes": [
+        {
+          "title": "Identify the missing stage",
+          "action": "Check whether the problem is the invite opening, account linkage, eligibility progress, purchase attribution, or payout.",
+          "expected": "You should have one specific stage to verify instead of a general referral complaint.",
+          "next": "If the invite never linked, the referred player should use their own account when contacting support. Otherwise continue."
+        },
+        {
+          "title": "Record what the referral flow showed",
+          "action": "Note the invite link or entry path, both nicknames, the displayed referral stage, activity or purchase time, and payment method when relevant.",
+          "expected": "The report should identify the missing stage without deciding eligibility from an unpublished or outdated rule.",
+          "next": "Continue to recheck the displayed progress once; private support must confirm any current eligibility or payout decision."
+        },
+        {
+          "title": "Reopen referral progress once",
+          "action": "Refresh the referral view once and compare it with the affected account or purchase time.",
+          "expected": "A delayed display may show the linked referral or progress.",
+          "next": "If it is still missing, open Discord support with the failed stage, both nicknames, approximate time, and payment method or receipt when relevant."
+        }
+      ],
+      "relatedProblems": [
+        "leaderboard-not-updated",
+        "purchase-not-received",
+        "wallet-already-linked"
+      ],
+      "discordDetails": [
+        "Failed referral stage",
+        "Your nickname and referred nickname",
+        "Approximate date and time",
+        "Expected progress or payout",
+        "Payment method and receipt if relevant"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      }
+    },
+    {
+      "id": "glider-verification-or-reward",
+      "category": "progress",
+      "title": "Glider verification or reward is stuck",
+      "problem": "Glider is stuck at enrollment, first verification, the waiting period, second verification, claim, or unstake.",
+      "whatMayBeHappening": [
+        "Each Glider stage has a separate review or waiting state.",
+        "A displayed waiting period can be expected behavior rather than a failed verification.",
+        "The portfolio balance may not have been read correctly, or the claim or unstake step may have failed."
+      ],
+      "caution": "Do not resubmit repeatedly or assume that a waiting state means the flow is broken.",
+      "fixes": [
+        {
+          "title": "Find the exact Glider stage",
+          "action": "Open Glider and note whether it shows enrollment, first verification, waiting, second verification, claim, or unstake.",
+          "expected": "The displayed stage should determine the next check.",
+          "next": "If it shows a waiting period, follow the exact window displayed by Glider. Otherwise continue."
+        },
+        {
+          "title": "Check the portfolio details",
+          "action": "Open the submitted Glider portfolio URL and confirm it is the intended portfolio and still shows the required OWB balance as displayed by the Glider interface.",
+          "expected": "The portfolio URL and visible balance should match what was submitted.",
+          "next": "If the URL or portfolio is wrong, correct it only through the official Glider flow. If it is correct, continue."
+        },
+        {
+          "title": "Reopen the stage once",
+          "action": "After the displayed waiting window or a completed action, reopen Glider once and check whether the stage advanced.",
+          "expected": "A completed verification or claim should move to the next stage.",
+          "next": "If it remains past the displayed window, is rejected despite a qualifying portfolio, or claim/unstake fails, open Discord support with the portfolio URL, shown balance, stage, submission time, and exact error."
+        }
+      ],
+      "relatedProblems": [
+        "referral-not-counted",
+        "leaderboard-not-updated",
+        "main-wallet-connection"
+      ],
+      "discordDetails": [
+        "Exact Glider stage",
+        "Portfolio URL",
+        "Shown OWB balance",
+        "Submission time and timezone",
+        "Exact claim or unstake error"
+      ],
+      "governance": {
+        "owner": "support-ops",
+        "reviewedAt": null,
+        "reviewState": "content-draft",
+        "dueForReview": null,
+        "publicationState": "published"
+      },
+      "splitInfo": {
+        "splitBranches": [
+          "first-verification",
+          "waiting-window",
+          "second-verification",
+          "claim",
+          "unstake"
+        ],
+        "note": "Each Glider stage has distinct requirements and waiting periods"
+      }
+    }
+  ],
+  "discordSupport": "https://discord.com/channels/1253075447848243361/1273676808436453447"
+}
